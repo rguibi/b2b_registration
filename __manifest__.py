@@ -9,11 +9,13 @@
     'sequence': 1,
     'author': 'Rguibi',
     'website': 'http://rguibi.com',
-    'depends': ['auth_signup'],
+    'depends': ['website'],
     'data': [
-        'views/auth_signup_extend_views.xml',
+        #'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
         #'views/reg.xml',
+        'views/template_register.xml',
+        #'views/registerb2b.xml',
     ],
     'images': [
         'static/description/auth_signup_banner.png',

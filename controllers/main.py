@@ -31,11 +31,11 @@ class AuthSignupHome(AuthSignupHome):
         print('why')
         request.env.cr.commit()
 
-    @http.route('/web/b2b_registration', type='http', auth='public', website=True, sitemap=False)
+    @http.route('/b2b_registration', type='http', auth='public', website=True, sitemap=False)
     def web_auth_signup(self, *args, **kw):
 
         qcontext = self.get_auth_signup_qcontext()
-        qcontext['states'] = request.env['res.country.state'].sudo().search([])
+        qcontext['industries'] = request.env['res.partner.industry'].sudo().search([])
         qcontext['countries'] = request.env['res.country'].sudo().search([])
 
         if 'redirect' in kw:
@@ -72,6 +72,6 @@ class AuthSignupHome(AuthSignupHome):
                 #     _logger.error("%s", e)
                 #     qcontext['error'] = _("Could not create a new account.")
 
-        response = request.render('auth_signup.signup', qcontext)
+        response = request.render('b2b_registration.register', qcontext)
         response.headers['X-Frame-Options'] = 'DENY'
         return response

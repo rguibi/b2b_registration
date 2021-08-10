@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="register" model="ir.ui.view">
+            <field name="name">B2B Register</field>
+            <field name="type">qweb</field>
+            <field name="key">b2b_registration.register</field>
+            <field name="arch" type="xml">
+                <t name="B2B Register" t-name="b2b_registration.register">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div class="oe_structure">
+                                <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24"
+                                         data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1">
+                                    <span class="s_parallax_bg oe_img_bg"
+                                          style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
+                                    <div class="o_we_bg_filter bg-black-50"/>
+                                    <div class="container">
+                                        <h1>B2B Register</h1>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="container mt-4 mb-5">
+                                <div class="row">
+                                    <div class="col-lg-7 col-xl-6 mr-lg-auto">
+                                        <div class="oe_structure">
+                                            <section class="s_text_block" data-snippet="s_text_block">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <p>
+                                                                Contact us about anything related to our company or
+                                                                services.
+                                                                <br/>
+                                                                We'll do our best to get back to you as soon as
+                                                                possible.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+
+
+                                        <div id="register_section">
+                                            <section class="s_website_form" data-vcss="001"
+                                                     data-snippet="s_website_form">
+                                                <div class="container">
+                                                    <form id="contactus_form" action="/b2b_registration/" method="post"
+                                                          enctype="multipart/form-data"
+                                                          class="o_mark_required" data-mark="*"
+                                                          data-model_name="mail.mail"
+                                                          data-success-mode="redirect"
+                                                          data-success-page="/contactus-thank-you">
+
+
+                                                        <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="name">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Name
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="name" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="name"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="company_name">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Company name
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="company_name" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="company_name"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="vat">
+                                                                        <span class="s_website_form_label_content">Vat
+                                                                            Number
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="vat" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="vat"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="fiscal_code">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Fiscal code
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="fiscal_code" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="fiscal_code"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="email">
+                                                                        <span class="s_website_form_label_content">
+                                                                            E-mail
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="email" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="email"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="phone">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Telephone Number
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="phone" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="phone"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="city">
+                                                                        <span class="s_website_form_label_content">
+                                                                            City
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="city" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="city"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="zip">
+                                                                        <span class="s_website_form_label_content">
+                                                                            CAP/ZIP
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="zip" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="zip"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="street">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Address
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="street" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="street"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="country_id">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Nation
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <select name="country_id" class="form-control">
+                                                                            <option value="">Select</option>
+                                                                            <t t-foreach="countries or []"
+                                                                               t-as="country">
+                                                                                <option t-att-value="country.id">
+                                                                                    <t t-esc="country.name"/>
+                                                                                </option>
+                                                                            </t>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="industry_id">
+                                                                        <span class="s_website_form_label_content">
+                                                                            Sector
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <select name="industry_id" class="form-control">
+                                                                            <option value="">Select</option>
+                                                                            <t t-foreach="industries or []"
+                                                                               t-as="industry">
+                                                                                <option t-att-value="industry.id">
+                                                                                    <t t-esc="industry.name"/>
+                                                                                </option>
+                                                                            </t>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="pec">
+                                                                        <span class="s_website_form_label_content">PEC
+                                                                            Electronic Invoicing (only in
+                                                                            Italy)
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="pec" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="pec"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="sdi">
+                                                                        <span class="s_website_form_label_content">SDI
+                                                                            Electronic Invoicing (only in
+                                                                            Italy)
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="sdi" type="text"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="sdi"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                                 data-type="char"
+                                                                 data-name="Field">
+                                                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                           style="width: 200px"
+                                                                           for="is_company">
+                                                                        <span class="s_website_form_label_content">is
+                                                                            company?
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm">
+                                                                        <input id="is_company" type="checkbox"
+                                                                               class="form-control s_website_form_input"
+                                                                               name="is_company"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" name="csrf_token"
+                                                                   t-att-value="request.csrf_token()"/>
+                                                            <input type="hidden" name="redirect"
+                                                                   t-att-value="redirect"/>
+                                                            <input type="hidden" name="token" t-att-value="token"/>
+
+                                                            <div class="form-group col-12 s_website_form_submit">
+                                                                <button type="submit" class="btn btn-primary btn-block" style="width: 200px;">
+                                                                    Submit
+                                                                </button>
+                                                                <a t-attf-href="/web/login?{{ keep_query() }}"
+                                                                   class="btn btn-link btn-sm" role="button">Already
+                                                                    have an account?
+                                                                </a>
+                                                                <div class="o_login_auth"/>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </section>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-lg-4 mt-4 mt-lg-0">
+                                        <t t-call="website.company_description"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_structure mt-2"/>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    </data>
+
+    <data>
+        <record id="register_page" model="website.page">
+            <field name="url">/b2b_registration</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="register"/>
+            <field name="track">True</field>
+        </record>
+
+        <record id="menu_register" model="website.menu">
+            <field name="name">b2b register</field>
+            <field name="url">/b2b_registration</field>
+            <field name="page_id" ref="b2b_registration.register_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">50</field>
+        </record>
+    </data>
+
+
+</odoo>
