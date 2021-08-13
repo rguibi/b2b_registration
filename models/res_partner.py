@@ -13,8 +13,8 @@ class ResPartner(models.Model):
     b2b_reg=fields.Boolean('b2b registration',default=False)
     b2b_confirmed=fields.Boolean('User enabled',default=False)
 
-    password = fields.Char(string='Password')
-    conf_password = fields.Char(string='Confirm Password')
+    #password = fields.Char(string='Password')
+    #conf_password = fields.Char(string='Confirm Password')
 
 
     def enable_user(self):
