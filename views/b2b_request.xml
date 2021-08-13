@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <record id="b2b_registration_form_view" model="ir.ui.view">
             <field name="name">b2b_registration.form</field>
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <form string="Partners">
-
 
                     <div class="alert alert-warning oe_edit_only" role="alert"
                          attrs="{'invisible': [('same_vat_partner_id', '=', False)]}">
@@ -18,7 +16,6 @@
                         already exists (<field name="same_vat_partner_id"/>), are you sure to create a new one?
                     </div>
                     <sheet>
-
                         <div class="oe_button_box" name="button_box"/>
                         <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
                                 attrs="{'invisible': [('active', '=', True)]}"/>
@@ -30,8 +27,6 @@
                             <field name="active" invisible="1"/>
                             <field name="b2b_confirmed" invisible="1"/>
                             <field name="b2b_reg" invisible="1"/>
-
-
                             <field name="company_type" widget="radio" class="oe_edit_only"
                                    options="{'horizontal': true}"/>
                             <h1>
@@ -50,10 +45,8 @@
                                         attrs="{'invisible': ['|', '|', ('is_company','=', True), ('company_name', '=', ''), ('company_name', '=', False)]}"/>
                             </div>
                         </div>
-
                         <group>
                             <group>
-
                                 <field name="type" groups="base.group_no_one"
                                        attrs="{'invisible': [('is_company','=', True)], 'readonly': [('user_ids', '!=', [])]}"/>
                                 <span class="o_form_label o_td_label" name="address_name">
@@ -107,12 +100,10 @@
                                        options="{'color_field': 'color', 'no_create_edit': True}"
                                        placeholder="Tags..."/>
                                 <div>
-                                    <button name="create_user" icon="fa-plus-square" string="Create user"
+                                    <button name="enable_user" icon="fa-plus-square" string="Create user"
                                             type="object" class="oe_edit_only btn-link"
                                             attrs="{'invisible': ['|', ('b2b_confirmed','=', True), ('b2b_reg', '=', False)]}"/>
                                 </div>
-
-
                             </group>
                         </group>
 
@@ -295,10 +286,10 @@
                     <field name="pec"/>
                     <field name="sdi"/>
                     <field name="is_company"/>
+                    <field name="b2b_confirmed"/>
                 </tree>
             </field>
         </record>
-
 
         <record id="b2b_registration_act_window" model="ir.actions.act_window">
             <field name="name">Register request</field>
@@ -314,7 +305,6 @@
             </field>
         </record>
 
-
         <record id="action_b2b_registration_view_tree" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
             <field name="view_mode">tree</field>
@@ -329,9 +319,7 @@
             <field name="view_id" ref="b2b_registration_form_view"/>
         </record>
 
-
         <menuitem name="B2B Register request" id="b2Bregister_request" parent="contacts.menu_contacts"
                   action="b2b_registration_act_window" sequence="2"/>
-
     </data>
 </odoo>

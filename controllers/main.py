@@ -24,23 +24,37 @@ class AuthSignupHome(AuthSignupHome):
             kw['b2b_reg']=1
         if 'token' in kw:
             kw.pop('token')
-        print(kw)
         if not qcontext.get('token') and not qcontext.get('signup_enabled'):
             raise werkzeug.exceptions.NotFound()
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
-                print('first')
                 # Send an account creation confirmation email
                 if 'country_id' in kw:
                     kw['country_id']=int(qcontext.get('country_id'))
-
-                part_user=request.env['res.partner'].create(kw)
+                if kw['password']!=kw['conf_password']:
+                    raise UserError(_("Passwords do not match; please retype them."))
+                b2b_part=request.env['res.partner'].create(kw)
+                if b2b_part:
+                    data = {
+                        'name':b2b_part.name,
+                        'login': b2b_part.email,
+                        'partner_id': b2b_part.id,
+                        'password': b2b_part.password,
+                        'active':False,
+                    }
+                    b2b_user=request.env['res.users'].sudo().create(qcontext)
+                    #if b2b_user:
+                        #b2b_part.write({'password':"",'conf_password':""})
                 #return self.web_login(*args, **kw)
                 return request.render('website.homepage', {})
             except UserError as e:
                 qcontext['error'] = e.name or e.value
             except (SignupError, AssertionError) as e:
-                print(e)
+                if request.env["res.users"].sudo().search([("login", "=", qcontext.get("email"))]):
+                    qcontext["error"] = _("Another user is already registered using this email address.")
+                else:
+                    _logger.error("%s", e)
+                    qcontext['error'] = _("Could not create a new account.")
         response = request.render('b2b_registration.register', qcontext)
         response.headers['X-Frame-Options'] = 'DENY'
         return response
