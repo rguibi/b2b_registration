@@ -397,7 +397,10 @@
                                                                 <input type="hidden" name="csrf_token"
                                                                        t-att-value="request.csrf_token()"/>
 
-
+                                                                <t t-call="auth_signup.fields">
+                                                                    <t t-set="only_passwords"
+                                                                       t-value="bool(token and not invalid_token)"/>
+                                                                </t>
 
                                                                 <p class="alert alert-danger" t-if="error" role="alert">
                                                                     <t t-esc="error"/>
