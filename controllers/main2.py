@@ -36,8 +36,9 @@ class AuthSignupHome(AuthSignupHome):
         qcontext = self.get_auth_signup_qcontext()
         qcontext['industries'] = request.env['res.partner.industry'].sudo().search([])
         qcontext['countries'] = request.env['res.country'].sudo().search([])
-        if not qcontext.get('token') and not qcontext.get('signup_enabled'):
-            raise werkzeug.exceptions.NotFound()
+        _logger.error(qcontext.get('token'))
+        # if not qcontext.get('token') and not qcontext.get('signup_enabled'):
+        #     raise werkzeug.exceptions.NotFound()
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 _logger.error("im here2")
