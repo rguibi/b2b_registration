@@ -29,6 +29,7 @@ class AuthSignupHome(AuthSignupHome):
 
         _logger.error("im here")
         self._signup_with_values(qcontext.get('token'), values)
+        _logger.error("im here_________________________________")
         request.env.cr.commit()
 
     @http.route('/b2b_registration', type='http', auth='public', website=True, sitemap=False)
