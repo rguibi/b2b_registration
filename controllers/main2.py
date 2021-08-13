@@ -26,6 +26,8 @@ class AuthSignupHome(AuthSignupHome):
         lang = request.context.get('lang', '').split('_')[0]
         if lang in supported_lang_codes:
             values['lang'] = lang
+
+        _logger.error("im here")
         self._signup_with_values(qcontext.get('token'), values)
         request.env.cr.commit()
 
@@ -36,9 +38,9 @@ class AuthSignupHome(AuthSignupHome):
         qcontext['countries'] = request.env['res.country'].sudo().search([])
         if not qcontext.get('token') and not qcontext.get('signup_enabled'):
             raise werkzeug.exceptions.NotFound()
-
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
+                _logger.error("im here2")
                 if 'email' in qcontext:
                     qcontext['login'] = qcontext['email']
                 qcontext['b2b_reg'] = 1
@@ -47,12 +49,14 @@ class AuthSignupHome(AuthSignupHome):
                 user_sudo = request.env['res.users'].sudo().search([('login', '=', qcontext.get('login'))])
                 template = request.env.ref('auth_signup.mail_template_user_signup_account_created',
                                            raise_if_not_found=False)
+                _logger.error("im here3")
                 if user_sudo and template:
                     template.sudo().with_context(
                         lang=user_sudo.lang,
                         auth_login=werkzeug.url_encode({'auth_login': user_sudo.email}),
                     ).send_mail(user_sudo.id, force_send=True)
                 #user_sudo.write({'active': 0})
+                _logger.error("im here4")
                 return request.render('website.homepage', {})
             except UserError as e:
                 qcontext['error'] = e.name or e.value

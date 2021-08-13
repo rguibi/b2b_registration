@@ -40,7 +40,7 @@ class AuthSignupHome(AuthSignupHome):
                         'login': b2b_part.email,
                         'partner_id': b2b_part.id,
                         'password': b2b_part.password,
-                        'active':False,
+                        'active':0,
                     }
                     b2b_user=request.env['res.users'].sudo().create(qcontext)
                     #if b2b_user:
