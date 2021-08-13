@@ -169,7 +169,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                             <div class="form-group col-12 s_website_form_field s_website_form_custom"
+                                                            <div class="form-group col-12 s_website_form_field s_website_form_custom"
                                                                  data-type="char"
                                                                  data-name="Field">
                                                                 <div class="row s_col_no_resize s_col_no_bgcolor">
@@ -375,22 +375,45 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input type="hidden" name="csrf_token"
-                                                                   t-att-value="request.csrf_token()"/>
-                                                            <input type="hidden" name="redirect"
-                                                                   t-att-value="redirect"/>
-                                                            <input type="hidden" name="token" t-att-value="token"/>
+                                                            <!--                                                            <input type="hidden" name="csrf_token"-->
+                                                            <!--                                                                   t-att-value="request.csrf_token()"/>-->
+                                                            <!--                                                            <input type="hidden" name="redirect"-->
+                                                            <!--                                                                   t-att-value="redirect"/>-->
+                                                            <!--                                                            <input type="hidden" name="token" t-att-value="token"/>-->
 
-                                                            <div class="form-group col-12 s_website_form_submit">
-                                                                <button type="submit" class="btn btn-primary btn-block" style="width: 200px;">
-                                                                    Submit
-                                                                </button>
-                                                                <a t-attf-href="/web/login?{{ keep_query() }}"
-                                                                   class="btn btn-link btn-sm" role="button">Already
-                                                                    have an account?
-                                                                </a>
-                                                                <div class="o_login_auth"/>
+                                                            <!--                                                            <div class="form-group col-12 s_website_form_submit">-->
+                                                            <!--                                                                <button type="submit" class="btn btn-primary btn-block" style="width: 200px;">-->
+                                                            <!--                                                                    Submit-->
+                                                            <!--                                                                </button>-->
+                                                            <!--                                                                <a t-attf-href="/web/login?{{ keep_query() }}"-->
+                                                            <!--                                                                   class="btn btn-link btn-sm" role="button">Already-->
+                                                            <!--                                                                    have an account?-->
+                                                            <!--                                                                </a>-->
+                                                            <!--                                                                <div class="o_login_auth"/>-->
+                                                            <!--                                                            </div>-->
+
+                                                            <div class="oe_signup_form" role="form" method="post"
+                                                                  t-if="not message">
+                                                                <input type="hidden" name="csrf_token"
+                                                                       t-att-value="request.csrf_token()"/>
+
+
+
+                                                                <p class="alert alert-danger" t-if="error" role="alert">
+                                                                    <t t-esc="error"/>
+                                                                </p>
+                                                                <input type="hidden" name="redirect"
+                                                                       t-att-value="redirect"/>
+                                                                <input type="hidden" name="token" t-att-value="token"/>
+                                                                <div class="text-center oe_login_buttons pt-3">
+                                                                    <button type="submit"
+                                                                            class="btn btn-primary btn-block">Sign up
+                                                                    </button>
+
+                                                                    <div class="o_login_auth"/>
+                                                                </div>
                                                             </div>
+
 
                                                         </div>
                                                     </form>
