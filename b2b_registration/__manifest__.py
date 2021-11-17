@@ -21,7 +21,7 @@
         'static/description/auth_signup_banner.png',
     ],
     'demo': [],
-    'price':5,
+    'price':10,
     'currency': 'EUR',
     'installable': True,
     'auto_install': False,
