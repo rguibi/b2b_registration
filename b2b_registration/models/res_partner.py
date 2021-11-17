@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import werkzeug
 from odoo import fields, models
 from odoo.exceptions import except_orm, Warning, RedirectWarning
 
@@ -20,17 +20,17 @@ class ResPartner(models.Model):
     def enable_user(self):
         if self.b2b_confirmed:
             raise Warning('User already created !')
-        b2b_user=self.env['res.users'].search([('partner_id','=',self.id)])
+        b2b_user=self.env['res.users'].search([('partner_id','=',self.id),('active','=',False)])
+
         if b2b_user:
             b2b_user.write({'active':True})
-        # data = {
-        #     'name': self.name,
-        #     'login': self.name.lower().replace(' ', '.'),
-        #     'partner_id': self.id,
-        #     'password': self.name.lower().replace(' ', '.')
-        # }
-        # uid = self.env['res.users'].sudo().create(data)
-        self.write({'b2b_confirmed':True})
+            self.write({'b2b_confirmed':True})
+            # template = self.ref('auth_signup.mail_template_user_signup_account_enabled',raise_if_not_found=False)
+            # if b2b_user and template:
+            #     template.sudo().with_context(
+            #         lang=b2b_user.lang,
+            #         auth_login=werkzeug.url_encode({'auth_login': b2b_user.email}),
+            #     ).send_mail(b2b_user.id, force_send=True)
 
 
 
